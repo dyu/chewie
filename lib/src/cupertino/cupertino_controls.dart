@@ -604,18 +604,21 @@ class _CupertinoControlsState extends State<CupertinoControls>
         left: marginSize,
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          if (chewieController.allowFullScreen)
-            _buildExpandButton(
+          if (chewieController.allowMuting)
+            _buildMuteButton(
+              controller,
               backgroundColor,
               iconColor,
               barHeight,
               buttonPadding,
             ),
-          const Spacer(),
-          if (chewieController.allowMuting)
-            _buildMuteButton(
-              controller,
+          const SizedBox(width: 8),
+          if (chewieController.allowFullScreen)
+            _buildExpandButton(
               backgroundColor,
               iconColor,
               barHeight,
